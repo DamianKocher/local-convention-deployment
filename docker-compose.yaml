@@ -16,6 +16,8 @@ services:
     image: ghcr.io/damiankocher/local-convention-dashboard-server:main
     env_file:
       - .env
+    environment:
+      PGHOST: postgres
     ports:
       - "3000:3000"
     depends_on:
@@ -24,6 +26,7 @@ services:
 
   database:
     image: postgres:16-alpine
+    hostname: postgres
     env_file:
       - .env
     environment:
