@@ -1,6 +1,6 @@
 services:
   nginx:
-    image: ghcr.io/damiankocher/local-convention-dashboard-nginx
+    image: ghcr.io/damiankocher/local-convention-dashboard-nginx:main
     ports:
       - "80:80"
       - "443:443"
