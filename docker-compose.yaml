@@ -8,3 +8,15 @@ services:
       - ./server.crt:/etc/ssl/crt/server.crt
       - ./server.key:/etc/ssl/crt/server.key
     restart: always
+  database:
+    image: postgres:16-alpine
+    env_file:
+      - .env
+    environment:
+      POSTGRES_USER: dsa
+      POSTGRES_DB: convention
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    restart: always
