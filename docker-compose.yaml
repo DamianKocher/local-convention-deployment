@@ -1,7 +1,10 @@
 services:
   nginx:
-    image: nginx:latest
+    image: ghcr.io/damiankocher/local-convention-dashboard-nginx:sha256-fa59a71b475fa16f0bbb1081926291a6cbac97efd460e962fa996ab3a9640af8.sig
     ports:
       - "80:80"
       - "443:443"
+    volumes:
+      - ./server.crt:/etc/ssl/crt/server.crt
+      - ./server.key:/etc/ssl/crt/server.key
     restart: always
