@@ -11,6 +11,17 @@ services:
       - ./server.crt:/etc/ssl/crt/server.crt
       - ./server.key:/etc/ssl/crt/server.key
     restart: always
+
+  server:
+    image: ghcr.io/damiankocher/local-convention-dashboard-server:main
+    env_file:
+      - .env
+    ports:
+      - "3000:3000"
+    depends_on:
+      - database
+    restart: always
+
   database:
     image: postgres:16-alpine
     env_file:
