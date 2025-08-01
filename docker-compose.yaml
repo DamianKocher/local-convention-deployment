@@ -1,3 +1,6 @@
+volumes:
+  db-data:
+
 services:
   nginx:
     image: ghcr.io/damiankocher/local-convention-dashboard-nginx:main
